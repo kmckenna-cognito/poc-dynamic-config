@@ -1,13 +1,13 @@
 POC: Dynamic Spring Configuration
 =================================
 
-Springboot provides built-in features to allow you to reload configuration from a Spring Cloud Config server. For example, if you have configured the logging level in your `application.yml` file, e.g.
+The Spring Boot Actuator plugin provides built-in features to allow you to reload configuration from a Spring Cloud Config server. For example, if you have configured the logging level in your `application.yml` file, e.g.
 ```yml
 logging.level.com.kelseymckenna: DEBUG
 ```
 you can change this in a git-tracked repository, then your Spring Cloud Config server will register the change, and Springboot applications can synchronise with this change.
 
-To allow your Springboot application to reload configuration for beans, you must annotate beans/configuration classes with `@RefreshScope`. If you annotate the primary application class, then all configuration can be reloaded. Here is an example application class (from the `example-service` project):
+To allow your Spring Boot application to reload configuration for beans, you must annotate beans/configuration classes with `@RefreshScope`. If you annotate the primary application class, then all configuration can be reloaded. Here is an example application class (from the `example-service` project):
 
 ```java
 @SpringBootApplication
